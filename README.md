@@ -12,4 +12,5 @@ Task achieved:
   <li>Generating sitemap xml file of given URL.</li>
   <li>Storing and Displaying sitemap.xml.</li>
 </ol>
+<img src="https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg">
 ![png](https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg)
