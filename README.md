@@ -12,7 +12,7 @@ Task achieved:
   <li>Generating sitemap xml file of given URL.</li>
   <li>Storing and Displaying sitemap.xml.</li>
 </ol>
-### XML sitemap Example:
+##### XML sitemap Example:
 <img src="https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg">
 
 ### To run this project on local machine:
