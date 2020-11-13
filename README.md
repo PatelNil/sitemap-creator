@@ -16,9 +16,9 @@ Task achieved:
 <img src="https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg">
 
 ### To run this project on local machine:
-1>First clone this repo.
-2>Open command prompt and move to this projects folder.
-3>Run following commands.
+1>First clone this repo.<br>
+2>Open command prompt and move to this projects folder.<br>
+3>Now follow these steps.
 <ol>
   <li>python manage.py runserver</li>
   <li>Follow the given link.</li>
