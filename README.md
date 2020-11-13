@@ -12,5 +12,17 @@ Task achieved:
   <li>Generating sitemap xml file of given URL.</li>
   <li>Storing and Displaying sitemap.xml.</li>
 </ol>
+#### XML sitemap Example:
 <img src="https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg">
-![png](https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg)
+
+### To run this project on local machine:
+1>First clone this repo.
+2>Open command prompt and move to this projects folder.
+3>Run following commands.
+<ol>
+  <li>python manage.py runserver</li>
+  <li>Follow the given link.</li>
+  <li>Type url and see the sitemap of given url.</li>
+ </ol>
+ 
+
