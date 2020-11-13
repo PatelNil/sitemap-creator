@@ -1,4 +1,3 @@
-from Sitemap.settings import MEDIA_URL
 from django.http import request
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -12,21 +11,26 @@ import os
 # Create your views here.
 def index(request):
     return render(request,'siteapp/input.html',{})
-    #return HttpResponse("Homepage")
 def xml(request):
-    url = request.POST['url']
-    pattern = r'(^www\.)([a-z]+)(.[a-z]+)$'
+    #getting the url from user
+    url = request.POST['url'] 
+    #pattern = www.abcd.xy
+    pattern = r'(^www\.)([a-z]+)(.[a-z][a-z])$' 
     if re.match(pattern,url):
         filename = 'sitemap.xml'
         url1 = 'https://'+url
         html = requests.get(url1).text
-        web = BeautifulSoup(html,'lxml')
-        all_links = web.find_all('a')
+        web = BeautifulSoup(html,'lxml')    
+        #scraping the give url.
+        all_links = web.find_all('a')       
+        #finding all anchor from page
         links = []
         for link in all_links:
-            links.append(link.get('href'))
-        if len(links)>50000:
+            links.append(link.get('href'))  
+            #getting the links.
+        if len(links)>50000:                #max_no_urls = 50,000
             return HttpResponse('This website contains more than 50000 URLs!!')
+        #Generating xml file form links.
         subroot= ET.Element("urlset",attrib={'xmlns':"http://www.sitemaps.org/schemas/sitemap/0.9"})
         for link in links:
             userelement = ET.SubElement(subroot,"url")
@@ -40,23 +44,12 @@ def xml(request):
             tree.write(fh,xml_declaration=True,encoding='UTF-8')
         file = xml_file(file=filename)
         #file.save()
-        stats = os.stat('C:\\Users\\nil17\\Desktop\\Sitemap\\Sitemap\\sitemap.xml')
-        if stats.st_size<50000000:
+        #measuring the file size
+        stats = os.stat('C:\\Users\\nil17\\Desktop\\Sitemap\\Sitemap\\sitemap.xml') 
+        #max_size=50MB
+        if stats.st_size<50000000:                                                  
             return HttpResponse(open('C:\\Users\\nil17\\Desktop\\Sitemap\\Sitemap\\sitemap.xml').read(),content_type='text/xml')
+        else:
+            return HttpResponse("File size is too Big!!")
     else:
         return HttpResponse("Enter correct URL")
-
-def output(request):
-    url = request.POST['url']
-    pattern = r'(^www\.)([a-zA-Z]+)(.com)$'
-    if re.match(pattern,url):
-        url1 = 'https://'+url+'/'
-        html = requests.get(url1).text
-        web = BeautifulSoup(html,'lxml')
-        all_links = web.find_all('a')
-        links = []
-        for link in all_links:
-            links.append(link.get('href'))
-        return render(request,'siteapp/output.xml',{'url':links})
-    else:
-        return HttpResponse("Enter correctURL")
