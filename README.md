@@ -12,4 +12,4 @@ Task achieved:
   <li>Generating sitemap xml file of given URL.</li>
   <li>Storing and Displaying sitemap.xml.</li>
 </ol>
-![png]("C:\Users\nil17\Pictures\Screenshots\sitemap.png")
+![png](https://xmlsitemapgenerator.org/images/xml-sitemap-example.jpg)
